@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import Layout from './components/Layout';
+import Posts from './pages/Posts';
+import PostDetail from './pages/PostDetail';
+import { StoreProvider } from './store';
 
-function App() {
+const history = createBrowserHistory();
+
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+    <StoreProvider>
+      <Layout>
+        <Switch>
+            <Route exact path="/">
+              <Posts />
+            </Route>
+            <Route exact path="/detail">
+              <PostDetail />
+            </Route>
+          </Switch>
+      </Layout>
+    </StoreProvider>
+    </Router>
   );
 }
 
