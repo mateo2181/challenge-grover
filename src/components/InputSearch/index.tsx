@@ -26,7 +26,7 @@ export default function InputSearch({value, onChange}: Props) {
     return (
         <div>
             <Label> Type search query term in here: </Label>
-            <Input aria-label="search-articles" defaultValue={value} name="search" type="text" onChange={onChange} placeholder="Type to search articles..."/>
+            <Input data-cy="input-search" aria-label="search-articles" defaultValue={value} name="search" type="text" onChange={onChange} placeholder="Type to search articles..."/>
         </div>
     )
 }

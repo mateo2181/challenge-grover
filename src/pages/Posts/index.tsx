@@ -102,7 +102,7 @@ export default function Posts() {
                 <div>Articles not found</div>
             }
             {!state.loadingArticles && 
-             <Pager>
+             <Pager data-cy="pagination">
                 <div>{params.page !== 1 && <button onClick={() => setParams(prevState => ({...prevState, page: prevState.page-1}))}> {"< Prev Page"} </button>}</div>
                 <div>{<button onClick={() => setParams(prevState => ({...prevState, page: prevState.page+1}))}> {"Next Page >"} </button>}</div>
              </Pager>

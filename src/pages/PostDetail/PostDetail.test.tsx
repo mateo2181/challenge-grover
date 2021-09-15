@@ -1,9 +1,8 @@
-import { render, screen, waitFor, prettyDOM } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from "history";
 import { StoreProvider } from '../../store';
-import axios from 'axios';
 import PostDetail from '.';
 import { articles, mockArticles } from '../../__mocks__/api';
 
