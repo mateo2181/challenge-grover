@@ -1,8 +1,16 @@
 # Challenge Grover
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+### `npm install`
+
+To install project dependencies.
+
+Create a developer account here https://developer.nytimes.com, register a new App an generate an api-key.
+
+### `cp .env.example .env`
+
+Paste api-key generated in .env file.
 
 ### `npm start`
 
