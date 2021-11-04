@@ -6,8 +6,8 @@ export interface ActionStore {
 }
 
 export interface IStore {
-    articles: Article[];
-    loadingArticles: boolean
+    data: Article[];
+    loading: boolean
 }
 
 export interface IContextModel {

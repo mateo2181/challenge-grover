@@ -1,22 +1,15 @@
-import React, { createContext, useContext, useReducer } from "react";
-import { IContextModel, IStore } from "../types/store";
-import { reducer } from "./reducers";
+import articlesSlice from "./articlesSlice";
+import { configureStore } from "@reduxjs/toolkit";
 
-const initialState: IStore = {
-    articles: [],
-    loadingArticles: false
-}
+const store = configureStore({
+    reducer: {
+        articles: articlesSlice.reducer
+    },
+    devTools: true
+});
 
-export const Store = createContext({} as IContextModel);
+export default store
 
-export const useStore = () => useContext(Store);
-
-interface Props {
-    children?: any
-}
-
-export const StoreProvider: React.FC = ({ children }: Props) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-  
-    return <Store.Provider value={{state, dispatch}}>{children}</Store.Provider>;
-};
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch

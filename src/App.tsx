@@ -5,14 +5,15 @@ import { createBrowserHistory } from "history";
 import Layout from './components/Layout';
 import Posts from './pages/Posts';
 import PostDetail from './pages/PostDetail';
-import { StoreProvider } from './store';
+import store from './store';
+import { Provider } from 'react-redux'
 
 const history = createBrowserHistory();
 
 function App(): JSX.Element {
   return (
     <Router history={history}>
-    <StoreProvider>
+    <Provider store={store}>
       <Layout>
         <Switch>
             <Route exact path="/">
@@ -23,7 +24,7 @@ function App(): JSX.Element {
             </Route>
           </Switch>
       </Layout>
-    </StoreProvider>
+    </Provider>
     </Router>
   );
 }
